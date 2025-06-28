@@ -1,0 +1,313 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=DM+Sans:ital,opsz@0,9..40;1,9..40&family=DM+Serif+Display:ital@0;1&family=Dancing+Script:wght@400..700&family=Estonia&family=Faculty+Glyphic&family=Gothic+A1&family=Great+Vibes&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jost:ital,wght@0,100..900;1,100..900&family=League+Spartan:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playwrite+HR+Lijeva:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+
+header {
+    display: flex;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 200;
+    flex-direction: column;
+    transition: ease-in-out 0.5s;
+}
+
+.header-top {
+    padding: 10px 70px;
+    color: white;
+    background-color: rgb(27,54,100);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.header-top ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.header-top p a {
+    text-decoration: none;
+    color: white;
+    transition: ease-in-out 0.3s;
+}
+.header-top p a:hover {
+    opacity: 70%;
+}
+
+
+.header-bottom {
+    padding: 10px 70px;
+    color: white;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 600;
+    box-shadow: 5px 5px 9px rgba(0, 0, 0, 0.4);
+}
+
+.header-bottom .logo img {
+    width: 90px;
+}
+
+.header-bottom ul {
+    list-style: none;
+}
+
+.header-bottom .nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-size: 15px;
+}
+
+.header-bottom .nav a {
+    color: rgb(27,54,100);
+    text-decoration: none;
+    transition: ease-in-out 0.3s;
+    font-weight: 600;
+    position: relative;
+}
+
+.header-bottom .nav a:hover {
+    opacity: 70%;
+}
+
+.header-bottom .active {
+    opacity: 70%;
+}
+
+.header-bottom .nav .deco::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background-color: rgb(27,54,100);
+  transition: width 0.3s ease;
+}
+
+.header-bottom .nav .deco:hover::after {
+  width: 100%;
+}
+
+.header-bottom .nav li ul {
+    background-color: rgba(27, 54, 100, 0.775);
+    padding: 10px 10px;
+    border-top: solid 4px rgb(27,54,100) ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-direction: column;
+    position: absolute;
+    width: 150px;
+    color: white;
+    z-index: 300;
+    margin-top: 5px;
+    transition: ease-in-out 0.5s;
+    /* transform: translateX(4px); */
+    opacity: 0;
+    transform: translateX(-20%);
+}
+
+.header-bottom .nav li ul a {
+    color: white;
+    font-size: 15px;
+}
+
+/* apparition du menu au survol du liens services */
+.header-bottom .nav .services:hover ul {
+    opacity: 1;
+    transform: translateX(0%);
+    transition: ease-in-out 0.5s;
+}
+
+/* Classe appliquée quand on cache le header */
+.hide {
+    transition: ease-in-out 0.5s;
+    transform: translateY(-100%);
+}
+
+
+
+
+
+
+
+
+
+/* début de la premiere section */
+.section1 {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.section1 #bg-video {
+    position: absolute;
+    min-width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1; /* en arrière-plan */
+}
+
+.section1 .flou {
+    display: flex;
+    min-height: 130vh;
+    background-color: rgba(85, 68, 68, 0.3);
+    width: 100%;
+    min-height: 100vh;
+    align-items: flex-end;
+    padding: 50px;
+    padding-bottom: 20px;
+}
+
+/* Animation pour le texte du slider */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section1 h1 {
+    font-weight: 600;
+    color: white;
+    font-size: 40px;
+    /* opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 0.3s; */
+}
+
+
+
+
+
+
+
+
+
+/* début de la section 2 */
+.section2{
+    min-height: 100vh;
+    width: 90%;
+    background-image: url(../assets/images/bg-section2.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    left: 5.5%;
+    margin: 30px 0px;
+}
+
+.section2 .flou {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    padding: 50px;
+    flex-direction: column;
+    gap: 30px;
+    background: linear-gradient(to bottom, white, rgba(255, 255, 255, 0.716), rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0.491), rgba(255, 255, 255, 0.218), rgba(255, 255, 255, 0.117), transparent);
+}
+
+
+.section2 .flou h1 {
+    font-size: 45px;
+    color: rgb(44,71,118);
+    font-weight: 600;
+}
+
+.section2 .flou ul li {
+    font-size: 20px;
+    color: rgb(27,26,26);
+    font-weight: 400;
+    word-spacing: 3px;
+    line-height: 30px;
+    margin-bottom: 15px;
+    margin-left: 55px;
+    max-width: 70%;
+}
+
+.section2 .savoir {
+    max-width: 155px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    margin-left: 45px;
+}
+
+.section2 .savoir a {
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none;
+    width: 100%;
+    flex-wrap: wrap;
+    word-spacing: 5px;
+    backdrop-filter: blur(2px);
+    transition: ease-in-out .3s;
+}
+
+.section2 .savoir a:hover {
+    background-color: rgb(27,54,100);
+}
+
+
+.section2 .image img {
+    position: absolute;
+    height: 300px;
+    width: 300px;
+    border-radius: 100%;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    right: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+footer {
+    background-color: rgb(25,25,25);
+    color: rgb(163,163,163);
+    padding: 20px;
+    font-size: 15px;
+    text-align: center;
+    font-weight: 600;
+}
+footer span{
+    color: rgb(95,93,92);
+    font-weight: 500;
+}
+
+
+
