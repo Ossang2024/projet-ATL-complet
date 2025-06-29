@@ -52,3 +52,30 @@ document.querySelectorAll('.col14 .cart h2').forEach(h2 => {
         cart.classList.toggle('show-ul');
     });
 });
+
+
+
+
+
+
+
+
+
+
+  // Affichage du menu mobile
+  const menuToggle = document.getElementById("menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  menuToggle.addEventListener("click", () => {
+    mobileMenu.classList.toggle("active");
+  });
+
+  // Accordéon
+  const accordionItems = document.querySelectorAll(".accordion-item");
+
+  accordionItems.forEach(item => {
+    const header = item.querySelector(".accordion-header");
+    header.addEventListener("click", () => {
+      item.classList.toggle("active");
+    });
+  });

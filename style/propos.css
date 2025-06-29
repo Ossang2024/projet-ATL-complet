@@ -146,6 +146,86 @@ header {
 }
 
 
+/* Icône burger */
+.menu-toggle {
+  font-size: 25px;
+  cursor: pointer;
+  display: none;
+  color: rgb(5, 33, 85);
+}
+
+/* Menu mobile */
+#mobile-menu {
+  position: absolute;
+  z-index: 10000;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: rgba(5, 33, 85, 0.893);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+#mobile-menu ul {
+  list-style: none;
+}
+
+#mobile-menu li {
+  border-bottom: 1px solid rgb(163,163,163);
+}
+
+#mobile-menu a, .accordion-header {
+  display: block;
+  padding: 15px 20px;
+  color: white;
+  text-decoration: none;
+  transition: ease-in-out 0.3s;
+}
+#mobile-menu a:hover {
+    background-color: rgb(5, 33, 85);
+}
+
+.accordion-header {
+  cursor: pointer;
+}
+
+.submenu {
+  max-height: 0;
+  overflow: hidden;
+  background-color: rgb(27,54,100);
+  transition: max-height 0.3s ease;
+}
+
+.submenu li a {
+  padding-left: 50px;
+}
+
+/* Menu actif */
+#mobile-menu.active {
+  max-height: 500px; /* Assez grand pour tout afficher */
+}
+
+/* Accordion actif */
+.accordion-item.active .submenu {
+  max-height: 200px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    display: block;
+  }
+}
+
+
+
+
+
 
 
 
@@ -387,4 +467,92 @@ footer {
 footer span{
     color: rgb(95,93,92);
     font-weight: 500;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* gestion du responsive */ 
+/* Header */
+@media (max-width: 1100px) {
+    .section2,
+    .section33 {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+@media (max-width: 900px) {
+    /* header */
+    .header-top {
+        flex-direction: column;
+        gap: 10px;
+        padding: 5px 10px;
+    }
+
+    .header-bottom {
+        padding: 5px 20px;
+    }
+
+    .header-bottom .nav {
+        display: none;
+    }
+
+    .header-bottom .logo img {
+        width: 60px;
+    }
+
+    /* section1 */
+    .section1 .flou {
+        font-size: 30px;
+        line-height: 45px;
+    }
+
+    .section1 .flou {
+        font-size: 23px;
+        line-height: 35px;
+        text-transform: none;
+    }
+
+    /* section2 */
+    .section2 h1 {
+        font-size: 35px;
+    }
+
+    .section2 .block1 {
+        flex-wrap: wrap;
+    }
+
+    .section2 .block1 img {
+        max-width: 100%;
+        height: 100%;
+    }
+
+
+    /* section3 */
+    .section3 .block {
+        flex-wrap: wrap;
+    }
+
+    .section3 h1 {
+        font-size: 35px;
+        text-align: center;
+    }
+
+    .section3 .line {
+        margin-left: 30px;
+    }
+
+    .section4 .flou {
+        font-size: 40px;
+        padding: 50px;
+    }
 }
