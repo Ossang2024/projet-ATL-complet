@@ -507,4 +507,18 @@ footer span{
         line-height: 35px;
         text-transform: none;
     }
+
+    .section2 .col14 {
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .section2 .block1 {
+        max-width: 100%;
+    }
+
+    .section2 .send {
+        min-width: 100%;
+    }
+
 }

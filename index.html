@@ -6,6 +6,13 @@
     <link rel="shortcut icon" href="assets/images/favicon (15).ico" type="image/x-icon">
     <link rel="stylesheet" href="style/index.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <!-- code d'intégation et de redirection vers Emailjs -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3.11.0/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init("RCUysn0r0Rj7t62xn"); //clés publique
+        })();
+    </script>
     <title>AFRI TRAINNING & LEADERSHIP</title>
 </head>
 <body>
@@ -163,35 +170,65 @@
     <section class="section5">
         <div class="all">
         <div class="wrapper flex_box">
-            <form action="https://formsubmit.co/mbitangangel@gmail.com" method="post">
+            <form method="post">
                 <h1>Inscription à la newsletter</h1>
                 <div class="input">
                     <label>Prénom</label>
-                    <input class="name" type="text" name="Prénom" required>
-                </div>
-                <div class="input">
-                    <label>Nom de famille</label>
-                    <input class="name" type="text" name="Nom de famille" required>
+                    <input class="name" id="form_name" type="text" name="form_name" required>
                 </div>
                 <div class="input">
                     <label>E-mail</label>
-                    <input class="name" type="email" name="Email" required>
+                    <input class="name" type="email" name="form_email" id="form_email" required>
+                </div>
+                <div class="input">
+                    <label>Téléphone</label>
+                    <input class="name" type="tel" name="telephone" id="telephone" required>
                 </div>
                 <div class="button_wrapper">
                     <button type="submit"> Envoyer </button>
                 </div>
-
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_next" value="https://atl-merci.vercel.app/index.html"> 
             </form>
         </div>
     </div>
     </section>
 
     <footer>
-        <p><span>Copyright 2020 © Réalisé par </span>Andy Angel – Mentions légales – Politique de confidentialité et cookies</p>
+        <p>Copyright © 2025 ATL, by <a href="https://gic.cm" style="text-decoration: none; color: rgb(11, 113, 239); opacity: 60%;">GIC Promote Ltd</a></p>
     </footer>
 
+
+
+
+    <script>
+        // Initialisation d'EmailJS avec votre clé publique
+        emailjs.init('RCUysn0r0Rj7t62xn');  // Remplacez 'VOTRE_PUBLIC_KEY' par votre vraie clé publique
+    
+        // S'assurer que le DOM est entièrement chargé avant d'exécuter le script
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ajouter un écouteur d'événements au formulaire de contact
+            document.getElementById('contact').addEventListener('submit', function(event) {
+            event.preventDefault(); // Empêche le rechargement de la page lors de l'envoi du formulaire
+    
+            // Récupérer les valeurs des champs du formulaire
+            const templateParams = {
+            form_name: document.getElementById('form_name').value,  // Nom de l'expéditeur
+            form_email: document.getElementById('form_email').value, // Email de l'expéditeur
+            telephone: document.getElementById('telephone').value,  // Numéro de l'expéditeur
+            message: document.getElementById('message').value,  // Message
+            };
+        
+            // Envoi de l'e-mail via EmailJS
+            emailjs.send('service_ATL', 'template_t2xqgpm', templateParams)
+            .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+                alert('Votre message a été envoyé avec succès !');       
+            }, function(error) {
+                console.error('FAILED...', error);
+                alert('Une erreur est survenue. Veuillez réessayer plus tard.');
+                });         
+            });
+         });
+    </script>
     <script src="js/app.js"></script>
 </body>
 </html>
